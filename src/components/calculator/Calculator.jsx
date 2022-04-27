@@ -1,10 +1,10 @@
-import { useState } from 'react';
-import Buttons from '../buttons/buttons';
+import React, { useState } from 'react';
+import './calculator.css';
 import calculate from './logic/calculate';
-import './calculator.scss';
+import Button from '../buttons/buttons';
 
 const Calculator = () => {
-  const [calcObj, setCalcObj] = useState({
+  const [calObj, setCalObj] = useState({
     total: null,
     next: null,
     operation: null,
@@ -33,55 +33,54 @@ const Calculator = () => {
     '=',
   ];
 
-  const handleDisplayState = (beforeCalcObj, afterCalcObj) => {
-    // Handle display UI state
-    if (!afterCalcObj.operation && !afterCalcObj.next && afterCalcObj.total) {
-      setDisplay(afterCalcObj.total);
-    } else if (beforeCalcObj.operation && afterCalcObj.next) {
-      setDisplay(afterCalcObj.next);
-    } else if (afterCalcObj.total && afterCalcObj.operation) {
-      setDisplay(afterCalcObj.total);
-    } else if (!afterCalcObj.operation) {
-      setDisplay(afterCalcObj.next);
+  const handleDisplayState = (beforeCalObj, afterCalObj) => {
+    // Display of UI state
+    if (!afterCalObj.operation && !afterCalObj.next && afterCalObj.total) {
+      setDisplay(afterCalObj.total);
+    } else if (beforeCalObj.operation && afterCalObj.next) {
+      setDisplay(afterCalObj.next);
+    } else if (afterCalObj.total && afterCalObj.operation) {
+      setDisplay(afterCalObj.total);
+    } else if (!afterCalObj.operation) {
+      setDisplay(afterCalObj.next);
     } else {
       setDisplay(0);
     }
   };
 
   const handleClick = (e) => {
-    // Handle calculator logic state
-    const newCalcObj = calculate(calcObj, e.target.innerText);
-    setCalcObj(newCalcObj);
-    handleDisplayState(calcObj, newCalcObj);
+    const newCalObj = calculate(calObj, e.target.innerText);
+    setCalObj(newCalObj);
+    handleDisplayState(calObj, newCalObj);
   };
 
   return (
     <div className="calculator">
-      <div className="calculator__display">{display ?? calcObj.next ?? 0}</div>
-      <div className="calculator__keypad">
-        <div className="calculator__keypad-row">
+      <div className="display">{display ?? calObj.next ?? 0}</div>
+      <div className="keyboard">
+        <div className="keyboard-row">
           {buttons.slice(0, 4).map((btn) => (
-            <Buttons key={btn} name={btn} handleClick={handleClick} />
+            <Button key={btn} name={btn} handleClick={handleClick} />
           ))}
         </div>
-        <div className="calculator__keypad-row">
+        <div className="keyboard-row">
           {buttons.slice(4, 8).map((btn) => (
-            <Buttons key={btn} name={btn} handleClick={handleClick} />
+            <Button key={btn} name={btn} handleClick={handleClick} />
           ))}
         </div>
-        <div className="calculator__keypad-row">
+        <div className="keyboard-row">
           {buttons.slice(8, 12).map((btn) => (
-            <Buttons key={btn} name={btn} handleClick={handleClick} />
+            <Button key={btn} name={btn} handleClick={handleClick} />
           ))}
         </div>
-        <div className="calculator__keypad-row">
+        <div className="keyboard-row">
           {buttons.slice(12, 16).map((btn) => (
-            <Buttons key={btn} name={btn} handleClick={handleClick} />
+            <Button key={btn} name={btn} handleClick={handleClick} />
           ))}
         </div>
-        <div className="calculator__keypad-row">
+        <div className="keyboard-row">
           {buttons.slice(16, 19).map((btn) => (
-            <Buttons key={btn} name={btn} handleClick={handleClick} />
+            <Button key={btn} name={btn} handleClick={handleClick} />
           ))}
         </div>
       </div>
