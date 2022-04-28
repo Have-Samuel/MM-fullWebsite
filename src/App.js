@@ -10,9 +10,9 @@ const App = () => (
     <Header />
     <main>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route exact path="/" element={<Home />} />
         <Route path="/calculator" element={<CalculatorPage />} />
-        <Route path="quote" element={<Quote />} />
+        <Route path="/quote" element={<Quote />} />
       </Routes>
     </main>
   </div>
