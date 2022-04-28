@@ -12,9 +12,11 @@
 - Git & Github
 - React
 
-## Live Demo (if available)
+## Live Demo
+## Live Demo
 
-[Live Demo Link](https://have-samuel.github.io/MM-fullWebsite/)
+- [Heroku live demo](https://math256.herokuapp.com/)
+- [Netlify live demo]()
 
 ## Setup
 
