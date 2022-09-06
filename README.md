@@ -15,7 +15,6 @@
 ## Live Demo
 
 - [Heroku live demo](https://math256.herokuapp.com/)
-- [Netlify live demo](https://react-set-up.netlify.app/)
 
 ## Setup
 
