@@ -9,7 +9,7 @@
 
 - HTML & CSS
 - Javascript
-- Git & Github
+- Git & Gitflow
 - React
 
 ## Live Demo (if available)
