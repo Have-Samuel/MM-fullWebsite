@@ -12,9 +12,9 @@
 - Git & Gitflow
 - React
 
-## Live Demo (if available)
+## Live Demo
 
-[Live Demo Link](https://have-samuel.github.io/MM-fullWebsite/)
+[Live Demo Link](https://calculate00.netlify.app/)
 
 ## Setup
 
